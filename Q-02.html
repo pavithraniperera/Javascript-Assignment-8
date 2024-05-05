@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question-02</title>
+    <style>
+        .line1 {
+            border-top: 2px solid black; /* Style for first horizontal line */
+            margin-bottom: 200px; /* Optional margin for spacing */
+            color: white;
+        }
+        .container{
+
+            position: absolute;
+             height: fit-content;
+            width: 60vw;
+           top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+
+        }
+        body{
+            background-color: black;
+        }
+        .box{
+          color: white;
+            background-color: white;
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            border: 2px solid black;
+            margin-left: 20px;
+
+        }
+        .box-container{
+            display: flex;
+            position: relative;
+            top: -92px;
+            left: 170px;
+
+        }
+        #box1{
+            position: relative;
+            top: -180px;
+        }
+        #box6{
+            position: relative;
+            top: 180px;
+        }
+        button{
+            position: relative;
+            top: 800px;
+            width: 100px;
+            height: 50px;
+            left: 45vw;
+            font-weight: bolder;
+        }
+
+    </style>
+</head>
+<body>
+<script src="assets/lib/jquery-3.7.1.min.js"></script>
+<section class="container">
+    <hr class="line1">
+    <section class="box-container">
+        <div id="box1" class="box" style="background-color: red"></div>
+        <div id="box2" class="box" style="background-color: green"></div>
+        <div id="box3" class="box" style="background-color: blue"></div>
+        <div id="box4" class="box" style="background-color: yellow"></div>
+        <div id="box5" class="box" style="background-color: purple"></div>
+        <div id="box6" class="box" style="background-color: orange"></div>
+
+    </section>
+    <hr class="line1">
+
+</section>
+<button id="start" type="button">Start</button>
+<button id="Stop" type="button">Stop</button>
+<script>
+    var colors = ["red", "green", "blue", "yellow", "purple", "orange"];
+    function replace(){
+        let lastValue = colors.pop();
+        colors.unshift(lastValue);
+
+        $("#box1").css( "background-color",colors[0]);
+        $("#box2").css( "background-color",colors[1]);
+        $("#box3").css( "background-color",colors[2]);
+        $("#box4").css( "background-color",colors[3]);
+        $("#box5").css( "background-color",colors[4]);
+        $("#box6").css( "background-color",colors[5]);
+
+    }
+    var myInterval;
+    $("#start").on("click",function (){
+        myInterval = setInterval(replace,1000);
+
+    });
+
+    $("#Stop").click(function (){
+        clearInterval(myInterval);
+    });
+
+</script>
+</body>
+
+</html>
